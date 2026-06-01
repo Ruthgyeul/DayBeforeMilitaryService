@@ -428,8 +428,8 @@ function update(){
   document.getElementById('routine-text').textContent = getRoutine(mode);
 
   const pct = getServicePct(now);
-  document.getElementById('life-pct').textContent = pct.toFixed(2)+'%';
-  document.getElementById('life-bar').style.width = pct.toFixed(2)+'%';
+  document.getElementById('life-pct').textContent = pct.toFixed(6)+'%';
+  document.getElementById('life-bar').style.width = pct+'%';
 
   if(mode==='pre'){
     const diff=ENLIST-now, totalSec=Math.floor(diff/1000), daysLeft=Math.floor(totalSec/86400);
@@ -452,7 +452,7 @@ function update(){
     const elapsed=Math.floor((now-ENLIST)/86400000);
     document.getElementById('stat-main-val').textContent = elapsed.toLocaleString()+'일째';
     document.getElementById('stat-main-sub').textContent = '전역 '+formatDate(DISCHARGE);
-    document.getElementById('stat-main-bar').style.width = pct.toFixed(2)+'%';
+    document.getElementById('stat-main-bar').style.width = pct+'%';
 
   } else {
     const elapsed=Math.floor((now-DISCHARGE)/86400000);
