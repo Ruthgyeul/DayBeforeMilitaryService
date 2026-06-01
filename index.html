@@ -180,6 +180,9 @@ function calcDischarge(enlist, months) {
   return d;
 }
 const DISCHARGE = calcDischarge(ENLIST, theme.service);
+const DISCHARGE_NEXT_DAY = new Date(DISCHARGE);
+DISCHARGE_NEXT_DAY.setDate(DISCHARGE_NEXT_DAY.getDate() + 1);
+DISCHARGE_NEXT_DAY.setHours(0, 0, 0, 0);
 const SERVICE_DAYS = Math.round((DISCHARGE - ENLIST) / 86400000); // 총 복무일수
 
 const BIRTH   = new Date('2003-01-01');
@@ -187,8 +190,8 @@ const LIFE_END = new Date(BIRTH); LIFE_END.setFullYear(LIFE_END.getFullYear() + 
 
 // ── 모드 판별 ──
 function getMode(now) {
-  if (now < ENLIST)    return 'pre';
-  if (now < DISCHARGE) return 'serving';
+  if (now < ENLIST) return 'pre';
+  if (now < DISCHARGE_NEXT_DAY) return 'serving';
   return 'done';
 }
 let currentMode = null;
@@ -440,8 +443,8 @@ function update(){
     document.getElementById('stat-main-bar').style.width = '0%';
 
   } else if(mode==='serving'){
-    const diff=DISCHARGE-now, totalSec=Math.floor(diff/1000), daysLeft=Math.floor(totalSec/86400);
-    document.getElementById('dday').textContent    = Math.max(0, daysLeft);
+    const diff=DISCHARGE-now, totalSec=Math.floor(diff/1000), daysLeft=Math.max(0, Math.ceil(totalSec/86400));
+    document.getElementById('dday').textContent = daysLeft;
     document.getElementById('hours').textContent   = pad(Math.floor((totalSec%86400)/3600));
     document.getElementById('minutes').textContent = pad(Math.floor((totalSec%3600)/60));
     document.getElementById('seconds').textContent = pad(totalSec%60);
