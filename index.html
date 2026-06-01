@@ -10,13 +10,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --olive: #4a5240;
-      --olive-dark: #2e3328;
-      --olive-light: #7a8c6e;
-      --khaki: #b5a97a;
+      --c1: #4a5240;
+      --c1-dark: #2e3328;
+      --c1-light: #7a8c6e;
+      --c2: #b5a97a;
       --cream: #f0ead8;
       --red: #c0392b;
       --bg: #1a1c17;
+      --accent: #c0392b;
     }
 
     html, body {
@@ -28,7 +29,6 @@
       transition: background 2s ease;
     }
 
-    /* 격자 배경 */
     body::before {
       content: '';
       position: fixed;
@@ -50,7 +50,6 @@
       z-index: 0;
     }
 
-    /* 별 캔버스 */
     #starfield {
       position: fixed;
       inset: 0;
@@ -75,8 +74,8 @@
       font-weight: 700;
       font-size: 0.65rem;
       letter-spacing: 0.3em;
-      color: var(--khaki);
-      border: 1px solid var(--olive-light);
+      color: var(--c2);
+      border: 1px solid var(--c1-light);
       padding: 0.35rem 1.2rem;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -106,7 +105,7 @@
     .dday-prefix {
       font-family: 'Black Han Sans', sans-serif;
       font-size: clamp(3rem, 8vw, 6rem);
-      color: var(--olive-light);
+      color: var(--c1-light);
       letter-spacing: -0.02em;
     }
 
@@ -134,10 +133,10 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--olive-light));
+      background: linear-gradient(90deg, transparent, var(--c1-light));
     }
     .date-line::after {
-      background: linear-gradient(90deg, var(--olive-light), transparent);
+      background: linear-gradient(90deg, var(--c1-light), transparent);
     }
 
     .date-text {
@@ -145,7 +144,7 @@
       font-weight: 300;
       font-size: 0.9rem;
       letter-spacing: 0.25em;
-      color: var(--khaki);
+      color: var(--c2);
       white-space: nowrap;
     }
 
@@ -170,7 +169,7 @@
     .time-label {
       font-size: 0.6rem;
       letter-spacing: 0.2em;
-      color: var(--olive-light);
+      color: var(--c1-light);
       text-transform: uppercase;
       margin-top: 0.3rem;
       display: block;
@@ -179,16 +178,15 @@
     .time-sep {
       font-family: 'Black Han Sans', sans-serif;
       font-size: 2rem;
-      color: var(--olive);
+      color: var(--c1);
       align-self: flex-start;
       padding-top: 0.1rem;
     }
 
-    /* 킹받는 메시지 */
     .message {
       font-size: clamp(0.75rem, 1.5vw, 0.85rem);
       font-weight: 300;
-      color: var(--olive-light);
+      color: var(--c1-light);
       letter-spacing: 0.05em;
       text-align: center;
       max-width: 440px;
@@ -199,17 +197,13 @@
       min-height: 3em;
     }
 
-    .message strong {
-      color: var(--khaki);
-      font-weight: 700;
-    }
+    .message strong { color: var(--c2); font-weight: 700; }
 
-    /* 지금 이 1초로 할 수 있는 것 */
     .onesec {
       margin-top: 0.6rem;
       font-size: 0.7rem;
       font-weight: 300;
-      color: var(--olive-light);
+      color: var(--c1-light);
       letter-spacing: 0.04em;
       text-align: center;
       opacity: 0;
@@ -218,12 +212,8 @@
       min-height: 1.5em;
     }
 
-    .onesec span {
-      color: var(--khaki);
-      font-weight: 700;
-    }
+    .onesec span { color: var(--c2); font-weight: 700; }
 
-    /* 스탯 카드 3개 */
     .stats-row {
       display: flex;
       gap: 0.8rem;
@@ -236,7 +226,7 @@
 
     .stat-card {
       flex: 1;
-      border: 1px solid var(--olive);
+      border: 1px solid var(--c1);
       padding: 0.85rem 0.75rem 0.75rem;
       display: flex;
       flex-direction: column;
@@ -256,7 +246,7 @@
     .stat-title {
       font-size: 0.52rem;
       letter-spacing: 0.15em;
-      color: var(--olive-light);
+      color: var(--c1-light);
       text-transform: uppercase;
     }
 
@@ -269,7 +259,7 @@
 
     .stat-sub {
       font-size: 0.58rem;
-      color: var(--khaki);
+      color: var(--c2);
       letter-spacing: 0.04em;
       line-height: 1.5;
     }
@@ -277,17 +267,16 @@
     .stat-bar {
       width: 100%;
       height: 2px;
-      background: var(--olive-dark);
+      background: var(--c1-dark);
       margin-top: 0.15rem;
     }
 
     .stat-bar-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--olive-light), var(--khaki));
+      background: linear-gradient(90deg, var(--c1-light), var(--c2));
       transition: width 1s linear;
     }
 
-    /* 하단 도장 */
     .stamp {
       position: fixed;
       bottom: 2rem;
@@ -297,13 +286,13 @@
     }
 
     .stamp-inner {
-      border: 2px solid var(--red);
+      border: 2px solid var(--accent);
       padding: 0.4rem 0.9rem;
       transform: rotate(-8deg);
       font-family: 'Black Han Sans', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 0.15em;
-      color: var(--red);
+      color: var(--accent);
       opacity: 0.6;
     }
 
@@ -331,8 +320,8 @@
 <canvas id="starfield"></canvas>
 
 <div class="container">
-  <div class="badge">MANDATORY MILITARY SERVICE</div>
-  <div class="name-label">유한빈</div>
+  <div class="badge" id="badge">MANDATORY MILITARY SERVICE</div>
+  <div class="name-label" id="name-label">---</div>
 
   <div class="dday-wrapper">
     <span class="dday-prefix">D-</span>
@@ -340,7 +329,7 @@
   </div>
 
   <div class="date-line">
-    <span class="date-text">2026. 09. 28 입대</span>
+    <span class="date-text" id="date-text">---- -- -- 입대</span>
   </div>
 
   <div class="time-row">
@@ -383,54 +372,163 @@
     <div class="stat-card">
       <div class="stat-title">인생 헌납률</div>
       <div class="stat-value" id="life-pct">--%</div>
-      <div class="stat-sub">평균수명 83세 기준<br>군대에 뺏기는 시간</div>
+      <div class="stat-sub" id="life-sub">평균수명 83세 기준<br>군대에 뺏기는 시간</div>
       <div class="stat-bar"><div class="stat-bar-fill" id="life-bar" style="width:0%"></div></div>
     </div>
   </div>
 </div>
 
 <div class="stamp">
-  <div class="stamp-inner">입영 예정</div>
+  <div class="stamp-inner" id="stamp-text">입영 예정</div>
 </div>
 
 <script>
-  // ── 설정 ──
-  const ENLIST   = new Date('2026-09-28T06:00:00');
+  // ── 군종 테마 ──
+  const THEMES = {
+    '육군': {
+      label:  '대한민국 육군 / REPUBLIC OF KOREA ARMY',
+      badge:  'REPUBLIC OF KOREA ARMY',
+      stamp:  '입영 예정',
+      service: 18,
+      bg:     { h: 82,  s: 8,  lMin: 5,  lMax: 17 },
+      vars: {
+        '--c1':       '#4a5240',
+        '--c1-dark':  '#2e3328',
+        '--c1-light': '#7a8c6e',
+        '--c2':       '#b5a97a',
+        '--accent':   '#c0392b',
+        '--bg':       '#1a1c17',
+      },
+      grid: 'rgba(74,82,64,0.15)',
+    },
+    '공군': {
+      label:  '대한민국 공군 / REPUBLIC OF KOREA AIR FORCE',
+      badge:  'REPUBLIC OF KOREA AIR FORCE',
+      stamp:  '입영 예정',
+      service: 21,
+      bg:     { h: 210, s: 25, lMin: 5,  lMax: 14 },
+      vars: {
+        '--c1':       '#1e3a5f',
+        '--c1-dark':  '#0f2035',
+        '--c1-light': '#4a82b8',
+        '--c2':       '#7ab3d4',
+        '--accent':   '#4a82b8',
+        '--bg':       '#0a1520',
+      },
+      grid: 'rgba(74,130,184,0.12)',
+    },
+    '해군': {
+      label:  '대한민국 해군 / REPUBLIC OF KOREA NAVY',
+      badge:  'REPUBLIC OF KOREA NAVY',
+      stamp:  '입영 예정',
+      service: 20,
+      bg:     { h: 220, s: 30, lMin: 4,  lMax: 12 },
+      vars: {
+        '--c1':       '#1a2744',
+        '--c1-dark':  '#0d1628',
+        '--c1-light': '#3a5a8a',
+        '--c2':       '#c8a84b',
+        '--accent':   '#c8a84b',
+        '--bg':       '#080e1a',
+      },
+      grid: 'rgba(58,90,138,0.15)',
+    },
+    '해병대': {
+      label:  '대한민국 해병대 / REPUBLIC OF KOREA MARINE CORPS',
+      badge:  'REPUBLIC OF KOREA MARINE CORPS',
+      stamp:  '귀신 잡는 해병',
+      service: 18,
+      bg:     { h: 0,   s: 30, lMin: 5,  lMax: 13 },
+      vars: {
+        '--c1':       '#5c1a1a',
+        '--c1-dark':  '#3a0f0f',
+        '--c1-light': '#a03030',
+        '--c2':       '#d4a04a',
+        '--accent':   '#cc2200',
+        '--bg':       '#140808',
+      },
+      grid: 'rgba(160,48,48,0.15)',
+    },
+  };
+
+  // ── URL 파라미터 파싱 ──
+  // 지원 형식:
+  //   ?branch=육군&name=유한빈&date=20260928
+  const params  = new URLSearchParams(window.location.search);
+  const branch  = params.get('branch') || '육군';
+  const name    = params.get('name')   || '유한빈';
+  const dateRaw = params.get('date')   || '20260928';
+
+  // dateRaw: YYYYMMDD → Date
+  const yr  = parseInt(dateRaw.slice(0,4));
+  const mo  = parseInt(dateRaw.slice(4,6)) - 1;
+  const dy  = parseInt(dateRaw.slice(6,8));
+  const ENLIST = new Date(yr, mo, dy, 6, 0, 0);
+
+  const theme = THEMES[branch] || THEMES['육군'];
+
+  // 복무 기간
   const DISCHARGE = new Date(ENLIST);
-  DISCHARGE.setMonth(DISCHARGE.getMonth() + 18);
-  const BIRTH = new Date('2003-01-01T00:00:00');
+  DISCHARGE.setMonth(DISCHARGE.getMonth() + theme.service);
+
+  const BIRTH   = new Date('2003-01-01T00:00:00');
   const LIFE_END = new Date(BIRTH);
   LIFE_END.setFullYear(LIFE_END.getFullYear() + 83);
 
-  // ── 오늘 기준 총 일수 (배경 어둡기용) ──
-  const TODAY_REF = new Date();
-  TODAY_REF.setHours(0,0,0,0);
-  const TOTAL_DAYS = Math.ceil((ENLIST - TODAY_REF) / 86400000);
+  // ── 테마 적용 ──
+  const root = document.documentElement;
+  Object.entries(theme.vars).forEach(([k, v]) => root.style.setProperty(k, v));
+
+  // 격자 색상 교체
+  document.querySelector('body::before');
+  const gridStyle = document.createElement('style');
+  gridStyle.textContent = `body::before { background-image: linear-gradient(${theme.grid} 1px, transparent 1px), linear-gradient(90deg, ${theme.grid} 1px, transparent 1px) !important; }`;
+  document.head.appendChild(gridStyle);
+
+  document.getElementById('badge').textContent      = theme.badge;
+  document.getElementById('name-label').textContent = name;
+  document.getElementById('stamp-text').textContent = theme.stamp;
+
+  // 날짜 포맷
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function formatDate(d) {
+    return `${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`;
+  }
+  document.getElementById('date-text').textContent = formatDate(ENLIST) + ' 입대';
+
+  // ── title 업데이트 ──
+  document.title = `${name} D-DAY`;
+
+  // ── 배경 어둡기 ──
+  const TODAY_REF = new Date(); TODAY_REF.setHours(0,0,0,0);
+  const TOTAL_DAYS = Math.max(1, Math.ceil((ENLIST - TODAY_REF) / 86400000));
+
+  function updateBg(daysLeft) {
+    const { h, s, lMin, lMax } = theme.bg;
+    const ratio = Math.max(0, Math.min(1, daysLeft / TOTAL_DAYS));
+    const l = Math.round(lMin + ratio * (lMax - lMin));
+    document.body.style.background = `hsl(${h}, ${s}%, ${l}%)`;
+  }
 
   // ── 별 파티클 ──
   const canvas = document.getElementById('starfield');
   const ctx    = canvas.getContext('2d');
   let stars    = [];
 
-  function resizeCanvas() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
+  function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   function initStars() {
     stars = [];
     for (let i = 0; i < 120; i++) {
       stars.push({
-        x:       Math.random() * canvas.width,
-        y:       Math.random() * canvas.height,
-        r:       Math.random() * 1.2 + 0.2,
-        alpha:   Math.random(),
-        speed:   Math.random() * 0.004 + 0.001,
-        drift:   (Math.random() - 0.5) * 0.15,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        alpha: Math.random(),
+        speed: Math.random() * 0.004 + 0.001,
+        drift: (Math.random() - 0.5) * 0.15,
       });
     }
   }
-
   function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stars.forEach(s => {
@@ -439,23 +537,19 @@
       s.x += s.drift;
       if (s.x < 0) s.x = canvas.width;
       if (s.x > canvas.width) s.x = 0;
-
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(240,234,216,${s.alpha * 0.6})`;
+      ctx.fillStyle = `rgba(240,234,216,${s.alpha * 0.5})`;
       ctx.fill();
     });
     requestAnimationFrame(drawStars);
   }
-
-  resizeCanvas();
-  initStars();
-  drawStars();
+  resizeCanvas(); initStars(); drawStars();
   window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
 
-  // ── 1초로 할 수 있는 것 ──
+  // ── 1초 팩트 ──
   const oneSecFacts = [
-    ['지금 이 <span>1초</span>로', '유튜브 쇼츠 <span>0.01개</span> 봤을 수 있었다'],
+    ['지금 이 <span>1초</span>로', '유튜브 쇼츠 <span>0.01개</span> 볼 수 있었다'],
     ['지금 이 <span>1초</span>로', '치킨 한 조각의 <span>0.003%</span>를 먹을 수 있었다'],
     ['지금 이 <span>1초</span>로', '카카오톡 메시지 <span>0.5개</span> 보낼 수 있었다'],
     ['지금 이 <span>1초</span>로', '넷플릭스 드라마 <span>0.004%</span>를 볼 수 있었다'],
@@ -464,27 +558,17 @@
     ['지금 이 <span>1초</span>로', '인스타 릴스 <span>0.02개</span> 볼 수 있었다'],
     ['지금 이 <span>1초</span>로', '편의점 삼각김밥의 <span>0.001%</span>를 먹을 수 있었다'],
   ];
-
-  let factIdx   = 0;
-  let msgIdx    = 0;
+  let factIdx = 0;
   const onesecEl = document.getElementById('onesec');
-  const msgEl    = document.getElementById('message');
-
   function showFact(idx) {
-    const [line1, line2] = oneSecFacts[idx];
+    const [a, b] = oneSecFacts[idx];
     onesecEl.style.opacity = '0';
-    setTimeout(() => {
-      onesecEl.innerHTML = `${line1} ${line2}`;
-      onesecEl.style.opacity = '1';
-    }, 400);
+    setTimeout(() => { onesecEl.innerHTML = `${a} ${b}`; onesecEl.style.opacity = '1'; }, 400);
   }
-
   showFact(0);
-  setInterval(() => {
-    factIdx = (factIdx + 1) % oneSecFacts.length;
-    showFact(factIdx);
-  }, 5000);
+  setInterval(() => { factIdx = (factIdx + 1) % oneSecFacts.length; showFact(factIdx); }, 5000);
 
+  // ── 메인 메시지 ──
   const messages = [
     ['지금 이 순간에도 시간은 흐르고 있다.', '<strong>도망칠 수 없다.</strong>'],
     ['유일한 탈출구는', '<strong>앞으로 나아가는 것뿐.</strong>'],
@@ -493,49 +577,31 @@
     ['아직 시간 있으니까', '<strong>지금 하고 싶은 거 다 해.</strong>'],
     ['이미 피할 수 없는', '<strong>운명이다.</strong>'],
   ];
-
+  let msgIdx = 0;
+  const msgEl = document.getElementById('message');
   function setMessage(idx) {
-    const [line1, line2] = messages[idx];
+    const [a, b] = messages[idx];
     msgEl.style.opacity = '0';
     setTimeout(() => {
-      msgEl.innerHTML = `${line1}<br>${line2}`;
+      msgEl.innerHTML = `${a}<br>${b}`;
       msgEl.style.transition = 'opacity 0.8s';
       msgEl.style.opacity = '1';
     }, 500);
   }
+  setInterval(() => { msgIdx = (msgIdx + 1) % messages.length; setMessage(msgIdx); }, 30000);
 
-  setInterval(() => {
-    msgIdx = (msgIdx + 1) % messages.length;
-    setMessage(msgIdx);
-  }, 30000);
-
-  // ── 배경 어둡기: 남은 날 적을수록 더 어두워짐 ──
-  function updateBgDarkness(daysLeft) {
-    // TOTAL_DAYS일 때 밝음(기본), 0일 때 완전 어두움
-    const ratio = Math.max(0, Math.min(1, daysLeft / TOTAL_DAYS)); // 1=밝음, 0=어두움
-    // base hue: 26, lightness 17 → 5
-    const lightness = Math.round(5 + ratio * 12); // 5~17
-    const saturation = Math.round(3 + ratio * 5);  // 3~8
-    document.body.style.background = `hsl(82, ${saturation}%, ${lightness}%)`;
-  }
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function formatDate(d) {
-    return `${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`;
-  }
-
+  // ── 메인 업데이트 루프 ──
   function update() {
-    const now = new Date();
-
-    // ── 메인 D-day ──
+    const now  = new Date();
     const diff = ENLIST - now;
+
     if (diff <= 0) {
       document.getElementById('dday').textContent    = '0';
       document.getElementById('hours').textContent   = '00';
       document.getElementById('minutes').textContent = '00';
       document.getElementById('seconds').textContent = '00';
       msgEl.innerHTML = '수고해. <strong>잘 다녀와.</strong>';
-      updateBgDarkness(0);
+      updateBg(0);
     } else {
       const totalSec = Math.floor(diff / 1000);
       const daysLeft = Math.floor(totalSec / 86400);
@@ -543,36 +609,33 @@
       document.getElementById('hours').textContent   = pad(Math.floor((totalSec % 86400) / 3600));
       document.getElementById('minutes').textContent = pad(Math.floor((totalSec % 3600) / 60));
       document.getElementById('seconds').textContent = pad(totalSec % 60);
-      updateBgDarkness(daysLeft);
+      updateBg(daysLeft);
     }
 
-    // ── 카드 1: 전역까지 ──
+    // 카드 1: 전역까지
     const toDischarge   = DISCHARGE - now;
     const dischargeDays = Math.max(0, Math.ceil(toDischarge / 86400000));
     document.getElementById('discharge-days').textContent = dischargeDays.toLocaleString() + '일';
     document.getElementById('discharge-date').textContent = '전역 ' + formatDate(DISCHARGE);
     const serviceElapsed = now - ENLIST;
     const serviceTotal   = DISCHARGE - ENLIST;
-    const dischargePct   = Math.min(100, Math.max(0, (serviceElapsed / serviceTotal) * 100));
-    document.getElementById('discharge-bar').style.width = dischargePct.toFixed(2) + '%';
+    document.getElementById('discharge-bar').style.width =
+      Math.min(100, Math.max(0, (serviceElapsed / serviceTotal) * 100)).toFixed(2) + '%';
 
-    // ── 카드 2: 오늘 하루 남은 시간 ──
-    const midnight  = new Date(now);
-    midnight.setHours(24, 0, 0, 0);
+    // 카드 2: 오늘 하루
+    const midnight  = new Date(now); midnight.setHours(24,0,0,0);
     const todayLeft = midnight - now;
     const th = Math.floor(todayLeft / 3600000);
     const tm = Math.floor((todayLeft % 3600000) / 60000);
     const ts = Math.floor((todayLeft % 60000) / 1000);
     document.getElementById('today-remain').textContent = `${pad(th)}:${pad(tm)}:${pad(ts)}`;
-    const dayPct = ((86400000 - todayLeft) / 86400000) * 100;
-    document.getElementById('today-bar').style.width = dayPct.toFixed(2) + '%';
+    document.getElementById('today-bar').style.width =
+      ((86400000 - todayLeft) / 86400000 * 100).toFixed(2) + '%';
 
-    // ── 카드 3: 인생 헌납률 ──
-    const lifeTotal       = LIFE_END - BIRTH;
-    const serviceDuration = DISCHARGE - ENLIST;
-    const lifePct         = (serviceDuration / lifeTotal) * 100;
-    document.getElementById('life-pct').textContent  = lifePct.toFixed(2) + '%';
-    document.getElementById('life-bar').style.width  = Math.min(100, lifePct * 5) + '%';
+    // 카드 3: 인생 헌납률
+    const lifePct = ((DISCHARGE - ENLIST) / (LIFE_END - BIRTH)) * 100;
+    document.getElementById('life-pct').textContent = lifePct.toFixed(2) + '%';
+    document.getElementById('life-bar').style.width = Math.min(100, lifePct * 5) + '%';
   }
 
   update();
