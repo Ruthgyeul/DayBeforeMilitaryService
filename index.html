@@ -372,7 +372,7 @@
 
 <!-- 공유 버튼 -->
 <button class="share-btn" id="share-btn">URL 복사</button>
-<div class="share-toast" id="share-toast">클립보드에 복사됐어</div>
+<div class="share-toast" id="share-toast">클립보드에 복사됐어. 힘내라.</div>
 
 <!-- 도장 -->
 <div class="stamp"><div class="stamp-inner" id="stamp-text">입영 예정</div></div>
@@ -420,8 +420,8 @@ const THEMES = {
 // ── URL 파싱 ──
 const params  = new URLSearchParams(window.location.search);
 const branch  = params.get('branch') || '육군';
-const name    = params.get('name')   || '유한빈';
-const dateRaw = params.get('date')   || '20260928';
+const name    = params.get('name')   || '홍길동';
+const dateRaw = params.get('date')   || '20250630';
 
 const yr = parseInt(dateRaw.slice(0,4));
 const mo = parseInt(dateRaw.slice(4,6)) - 1;
@@ -554,7 +554,7 @@ const SAYINGS = [
   ['국방의 의무', '헌법 제39조. 피할 수 없으면 즐겨라.'],
   ['2년은 짧다', '인생 83년 중 고작 2년이다. (길게 느껴지겠지만)'],
   ['선임은 원래 그렇다', '네가 이상한 게 아니다. 원래 다 그렇다.'],
-  ['훈련소는 3주', '고작 3주다. 3주 후엔 자대다.'],
+  ['훈련소는 6주', '고작 6주다. 6주 후엔 자대다.'],
   ['자대가 더 힘들다', '훈련소는 준비운동이었다.'],
   ['전역하면 다 웃으면서 얘기한다', '지금은 상상이 안 되겠지만.'],
   ['군대 친구는 평생 간다', '참을 수 없는 고통을 함께한 사람.'],
