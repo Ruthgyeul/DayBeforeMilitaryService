@@ -215,7 +215,6 @@ function applyMode(mode) {
     routeLbl.textContent = '지금 훈련소는';
     coordStat.textContent = 'STATUS: ACTIVE';
     msWrap.style.display = 'flex';
-    shareTxt.textContent = 'URL 복사';
     document.getElementById('card-main-title').textContent  = '전역까지';
     document.getElementById('card-today-title').textContent = '오늘의 자유';
     document.getElementById('card-life-title').textContent  = '군생활 진행률';
@@ -227,7 +226,6 @@ function applyMode(mode) {
     routeLbl.textContent = '지금 부대는';
     coordStat.textContent = 'STATUS: SERVING';
     msWrap.style.display = 'none';
-    shareTxt.textContent = '전우에게 공유';
     document.getElementById('card-main-title').textContent  = '입대한지';
     document.getElementById('card-today-title').textContent = '오늘의 복무';
     document.getElementById('card-life-title').textContent  = '군생활 진행률';
@@ -239,7 +237,6 @@ function applyMode(mode) {
     routeLbl.textContent = '자유로운 지금은';
     coordStat.textContent = 'STATUS: FREE';
     msWrap.style.display = 'none';
-    shareTxt.textContent = '전우에게 공유';
     document.getElementById('card-main-title').textContent  = '전역한지';
     document.getElementById('card-today-title').textContent = '오늘의 자유';
     document.getElementById('card-life-title').textContent  = '군생활 진행률';
@@ -410,7 +407,7 @@ document.getElementById('popup-close').addEventListener('click',closeSaying);
 document.addEventListener('click',e=>{ if(document.getElementById('popup').classList.contains('show'))return; if(e.target.closest('.popup,.share-btn,#overlay'))return; showSaying(); });
 
 // ── 공유 버튼 ──
-document.getElementById('share-btn').addEventListener('click',e=>{ e.stopPropagation(); navigator.clipboard.writeText(window.location.href).then(()=>{ const t=document.getElementById('share-toast'); t.textContent=currentMode==='serving'?'전우에게 전달됐다. 같이 버텨라.':'클립보드에 복사됐어'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }); });
+document.getElementById('share-btn').addEventListener('click',e=>{ e.stopPropagation(); navigator.clipboard.writeText(window.location.href).then(()=>{ const t=document.getElementById('share-toast'); t.textContent=currentMode==='serving'?'복사 완료! 파이팅하자!!':'클립보드에 복사됐어'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }); });
 
 // ── 군생활 진행률 계산 ──
 function getServicePct(now){
