@@ -165,7 +165,7 @@ const dateRaw = params.get('date')   || '20250630';
 const yr = parseInt(dateRaw.slice(0,4));
 const mo = parseInt(dateRaw.slice(4,6)) - 1;
 const dy = parseInt(dateRaw.slice(6,8));
-const ENLIST = new Date(yr, mo, dy, 6, 0, 0);
+const ENLIST = new Date(yr, mo, dy, 0, 0, 0);
 
 const theme = THEMES[branch] || THEMES['육군'];
 
@@ -176,7 +176,7 @@ function calcDischarge(enlist, months) {
   // 예) 2025-06-30 + 18개월 → 2026-12-30 → -1일 → 2026-12-29
   const d = new Date(enlist.getFullYear(), enlist.getMonth() + months, enlist.getDate());
   d.setDate(d.getDate() - 1);
-  d.setHours(18, 0, 0, 0);
+  d.setHours(0, 0, 0, 0);
   return d;
 }
 const DISCHARGE = calcDischarge(ENLIST, theme.service);
