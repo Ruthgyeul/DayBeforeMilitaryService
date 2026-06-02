@@ -437,7 +437,7 @@ function update(){
 
   if(mode==='pre'){
     const diff=ENLIST-now, totalSec=Math.floor(diff/1000), daysLeft=Math.floor(totalSec/86400);
-    document.getElementById('dday').textContent    = daysLeft;
+    document.getElementById('dday').textContent    = daysLeft + 1;
     document.getElementById('hours').textContent   = pad(Math.floor((totalSec%86400)/3600));
     document.getElementById('minutes').textContent = pad(Math.floor((totalSec%3600)/60));
     document.getElementById('seconds').textContent = pad(totalSec%60);
